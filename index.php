@@ -1,10 +1,18 @@
 <?php
+ob_start();
+define('API_KEY','1426094959:AAECHR2-rAYjkljRrLKxZycKlUysYsxMhew');
 $admin = '1232898350';
-$token = '1426094959:AAECHR2-rAYjkljRrLKxZycKlUysYsxMhew';
+
+function ty($ch){
+return bot('sendChatAction', [
+'chat_id' => $ch,
+'action' => 'typing',
+]);
+}
 
 function bot($method,$datas=[]){
-global $token;
-    $url = "https://api.telegram.org/bot".$token."/".$method;
+
+    $url = "https://api.telegram.org/bot".API_KEY."/".$method;
     $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL,$url);
     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
